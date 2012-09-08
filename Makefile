@@ -12,7 +12,7 @@ WARNINGS = -Wall -Wstrict-prototypes
 CC = gcc
 CFLAGS = -O2 $(WARNINGS)
 
-PROGS = factor coprime mod mod_reverse
+PROGS = factor coprime mod mod_reverse prime
 
 default: all
 all:	$(PROGS)
@@ -32,6 +32,10 @@ mod:	mod.c
 mod_reverse:	mod_reverse.c
 	$(E) "  CC      " $@
 	$(Q) ${CC} $(CFLAGS) mod_reverse.c -o mod_reverse
+
+prime:	prime.c
+	$(E) "  CC      " $@
+	$(Q) ${CC} $(CFLAGS) prime.c -o prime -lgmp -lmpfr
 
 clean:
 	$(E) "  CLEAN   " $(PROGS)
