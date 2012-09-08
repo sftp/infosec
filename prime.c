@@ -45,7 +45,7 @@ int is_prime(unsigned long int n)
 	mpfr_add_si(power, num, -1, GMP_RNDN);
 	mpfr_div_ui (power, power, 2, GMP_RNDN);
 	
-	for(i = 2; i < l - 1; i++) {
+	for(i = 2; i < l; i++) {
 		mpfr_ui_pow(tmp, i, power, GMP_RNDN);
 
 		res = mpfr_modulus(tmp, num);
@@ -55,7 +55,7 @@ int is_prime(unsigned long int n)
 		}
 	}
 
-	return 1;
+	return l - 2; /* for probability estimate */
 }
 
 int main(int argc, char *argv[])
@@ -70,7 +70,9 @@ int main(int argc, char *argv[])
 	} else {
 		result = is_prime(num);
 		if(result) {
-			printf("Number %lu maybe prime\n", num);
+			printf("Number %lu maybe prime "
+			       "(probability >= 1/2^%d = %f)\n",
+			       num, result, 1 - 1 / (pow(2, result)));
 			goto exit;
 		}
 	}

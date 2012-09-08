@@ -35,7 +35,7 @@ mod_reverse:	mod_reverse.c
 
 prime:	prime.c
 	$(E) "  CC      " $@
-	$(Q) ${CC} $(CFLAGS) prime.c -o prime -lgmp -lmpfr
+	$(Q) ${CC} $(CFLAGS) prime.c -o prime -lm -lgmp -lmpfr
 
 clean:
 	$(E) "  CLEAN   " $(PROGS)
