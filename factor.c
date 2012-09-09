@@ -11,7 +11,10 @@ int main (int argc, char **argv)
 	int *deviders = calloc(100, sizeof(int));
 
 	printf("%d: ", number);
-	i = factor(number, deviders);
-	
+	factor(number, deviders);
+	for (i = 0; deviders[i] != 0; i++)
+		printf("%d ", deviders[i]);
+	putchar('\n');
+
 	return 0;
 }

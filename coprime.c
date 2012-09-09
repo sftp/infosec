@@ -8,22 +8,27 @@ int main (int argc, char *argv[])
 	int a = atoi(argv[1]);
 	int b = atoi(argv[2]);
 
-	int *a_del = calloc(100, sizeof(int));
-	int *b_del = calloc(100, sizeof(int));
+	int *a_del = malloc(100 * sizeof(int));
+	int *b_del = malloc(100 * sizeof(int));
 
 	int i, j;
-	int a_i, b_i;
 
 	int ret = 0;
 
 	printf("%d: ", a);
-	a_i = factor(a, a_del);
+	factor(a, a_del);
+	for (i = 0; a_del[i] != 0; i++)
+		printf("%d ", a_del[i]);
+	putchar('\n');
 
 	printf("%d: ", b);
-	b_i = factor(b, b_del);
+	factor(b, b_del);
+	for (i = 0; b_del[i] != 0; i++)
+		printf("%d ", b_del[i]);
+	putchar('\n');
 
-	for (i = 0; i < a_i; i++) {
-		for (j = 0; j < b_i; j++) {
+	for (i = 0; a_del[i] != 0; i++) {
+		for (j = 0; b_del[j] != 0; j++) {
 			if (a_del[i] == b_del[j]) {
 				printf("%d and %d is NOT coprime numbers\n", a, b);
 				ret = 1;
@@ -31,7 +36,6 @@ int main (int argc, char *argv[])
 			}
 		}
 	}
-
 	printf("%d and %d is coprime numbers\n", a, b);
 
 exit:
