@@ -26,8 +26,8 @@ unsigned long int mpfr_modulus(mpfr_t a, mpfr_t n)
 
 int is_prime(unsigned long int n)
 {
-	unsigned long int i, l, res;
-	mpfr_t tmp, num, power;
+	unsigned long int i, l, res, power;
+	mpfr_t tmp, num;
 
 	mpfr_init2(tmp, 512);
 	mpfr_set_ui(tmp, 0, GMP_RNDD);
@@ -35,18 +35,12 @@ int is_prime(unsigned long int n)
  	mpfr_init2(num, 512);
 	mpfr_set_ui(num, n, GMP_RNDD);
 
-	mpfr_init2(power, 256);
-
 	l = (n < 10) ? n : 10;
 
-	/*
-	 * power = (n-1)/2
-	 */
-	mpfr_add_si(power, num, -1, GMP_RNDN);
-	mpfr_div_ui (power, power, 2, GMP_RNDN);
-	
+	power = (n - 1) / 2;
+
 	for(i = 2; i < l; i++) {
-		mpfr_ui_pow(tmp, i, power, GMP_RNDN);
+		mpfr_ui_pow_ui(tmp, i, power, GMP_RNDN);
 
 		res = mpfr_modulus(tmp, num);
 
