@@ -1,25 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int factor (int number, int dels[])
-{
-	int i, iter = 0;
-
-	printf("%d: ", number);
-
-	for (i = 2; i <= number;) {
-		if (number % i == 0) {
-			printf("%d ", i);
-			dels[iter++] = i;
-			number /= i;
-		} else {
-			i++;
-		}
-	}
-
-	putchar('\n');
-	return iter;
-}
+#include "factor.h"
 
 int main (int argc, char *argv[])
 {
@@ -34,7 +16,10 @@ int main (int argc, char *argv[])
 
 	int ret = 0;
 
+	printf("%d: ", a);
 	a_i = factor(a, a_del);
+
+	printf("%d: ", b);
 	b_i = factor(b, b_del);
 
 	for (i = 0; i < a_i; i++) {
