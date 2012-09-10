@@ -5,7 +5,7 @@
 #include <gmp.h>
 #include <mpfr.h>
 
-unsigned long int mpfr_modulus(mpfr_t a, mpfr_t n)
+unsigned long int mpfr_mod(mpfr_t a, mpfr_t n)
 {
 	mpfr_t res;
 	mpfr_init2(res, 512);
@@ -42,7 +42,7 @@ int is_prime(unsigned long int n)
 	for(i = 2; i < l; i++) {
 		mpfr_ui_pow_ui(tmp, i, power, GMP_RNDN);
 
-		res = mpfr_modulus(tmp, num);
+		res = mpfr_mod(tmp, num);
 
 		if (!((res == 1) || (res == n - 1))) {
 			return 0;
