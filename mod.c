@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int mod(unsigned long int a, int n)
+int mod(long int a, int n)
 {
 	int ret;
 	ret = a % n;
@@ -13,7 +13,7 @@ int mod(unsigned long int a, int n)
 
 int main(int argc, char *argv[])
 {
-	unsigned int a = atoi(argv[1]);
+	int a = atoi(argv[1]);
 	int n = atoi(argv[2]);
 
 	printf("%d\n", mod(a, n));
