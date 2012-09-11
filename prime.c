@@ -32,7 +32,7 @@ int is_prime(unsigned long int n)
 	mpfr_init2(tmp, 512);
 	mpfr_set_ui(tmp, 0, GMP_RNDD);
 
- 	mpfr_init2(num, 512);
+	mpfr_init2(num, 512);
 	mpfr_set_ui(num, n, GMP_RNDD);
 
 	l = (n < 10) ? n : 10;
