@@ -19,11 +19,11 @@ int gcd_ext (int a, int b, int *x, int *y)
 		return a;
 	}
 
-	int q, r, x1, x2, y1, y2;	
-	
+	int q, r, x1, x2, y1, y2;
+
 	x2 = 1; x1 = 0;
 	y2 = 0; y1 = 1;
-	
+
 	while (b > 0) {
 		q = a / b;
 
@@ -34,11 +34,11 @@ int gcd_ext (int a, int b, int *x, int *y)
 
 		a = b;
 		b = r;
-		
+
 		x2 = x1; x1 = *x;
 		y2 = y1; y1 = *y;
 	}
-	
+
 	*x = x2;
 	*y = y2;
 
