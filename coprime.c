@@ -30,7 +30,8 @@ int main (int argc, char *argv[])
 	for (i = 0; a_del[i] != 0; i++) {
 		for (j = 0; b_del[j] != 0; j++) {
 			if (a_del[i] == b_del[j]) {
-				printf("%d and %d is NOT coprime numbers\n", a, b);
+				printf("%d and %d is NOT coprime numbers\n",
+				       a, b);
 				ret = 1;
 				goto exit;
 			}
