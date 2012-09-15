@@ -24,7 +24,7 @@ int main (int argc, char *argv[])
 
 		res = is_prime(rnd);
 
-		printf("Check %d with Lehmann test ...", rnd);
+		printf("Check %d with Lehmann test... ", rnd);
 		if(res) {
 			printf("Passed.\n"
 			       "Number maybe prime "
