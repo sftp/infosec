@@ -12,7 +12,7 @@ WARNINGS = -Wall -Wstrict-prototypes
 CC = gcc
 CFLAGS = -O2 $(WARNINGS)
 
-PROGS = factor coprime mod mod_reverse prime gcd
+PROGS = factor coprime mod mod_reverse prime gcd primitive_root
 
 default: all
 all:	$(PROGS)
@@ -40,6 +40,10 @@ prime:	prime.c
 gcd:	gcd.c
 	$(E) "  CC      " $@
 	$(Q) ${CC} $(CFLAGS) gcd.c -o gcd
+
+primitive_root:	primitive_root.c
+	$(E) "  CC      " $@
+	$(Q) ${CC} $(CFLAGS) primitive_root.c -o primitive_root -lgmp -lmpfr
 
 clean:
 	$(E) "  CLEAN   " $(PROGS)
