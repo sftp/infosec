@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	factor(n - 1, deviders);
 
 	/*
-	 * i^((n-1)/2) mod n
+	 * i^((n-1)/deviders[j]) mod n
 	 */
 	for(i = 1; i < n; i++) {
 		ret = 0;
