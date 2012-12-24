@@ -13,7 +13,7 @@ CC = gcc
 CFLAGS = -O2 $(WARNINGS)
 
 PROGS = factor coprime mod mod_reverse prime gcd primitive_root \
-	gen_prime
+	gen_prime feistel
 
 default: all
 all:	$(PROGS)
@@ -49,6 +49,10 @@ primitive_root:	primitive_root.c
 gen_prime:	gen_prime.c
 	$(E) "  CC      " $@
 	$(Q) ${CC} $(CFLAGS) gen_prime.c -o gen_prime -lgmp -lmpfr -lrt -lm
+
+feistel:	feistel.c
+	$(E) "  CC      " $@
+	$(Q) ${CC} $(CFLAGS) feistel.c -o feistel
 
 clean:
 	$(E) "  CLEAN   " $(PROGS)
