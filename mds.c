@@ -36,6 +36,11 @@ int main(int argc, char *argv[])
 			{1, 1, 2, 3},
 			{3, 1, 1, 2}};
 
+	u8 MDS_inv[4][4] = {{14, 11, 13,  9},
+			    { 9, 14, 11, 13},
+			    {13,  9, 14, 11},
+			    {11, 13,  9, 14}};
+
 	u8 input[4] = {0xd4, 0xbf, 0x5d, 0x30};
 
 	printf("poly:\t0x%02x\n\n", POLY);
@@ -63,6 +68,17 @@ int main(int argc, char *argv[])
 			res[i] ^= gmul(input[j], MDS[i][j]);
 		}
 		printf("\t0x%02x\n", res[i]);
+	}
+
+	putchar('\n');
+
+	printf("invert:\n");
+	for (i = 0; i < 4; i++) {
+		input[i] = 0;
+		for (j = 0; j < 4; j++) {
+			input[i] ^= gmul(res[j], MDS_inv[i][j]);
+		}
+		printf("\t0x%02x\n", input[i]);
 	}
 
 	return 0;
