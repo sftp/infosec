@@ -58,7 +58,7 @@ feistel:	feistel.c
 	$(E) "  CC      " $@
 	$(Q) ${CC} $(CFLAGS) feistel.c -o feistel
 
-mds:	feistel.c
+mds:	mds.c
 	$(E) "  CC      " $@
 	$(Q) ${CC} $(CFLAGS) mds.c -o mds
 
