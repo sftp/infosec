@@ -12,7 +12,7 @@ WARNINGS = -Wall -Wstrict-prototypes
 CC = gcc
 CFLAGS = -O2 $(WARNINGS)
 
-PROGS = factor coprime mod mod_reverse prime gcd primitive_root \
+PROGS = factor coprime mod mod_reverse prime gcd gcd_stein primitive_root \
 	gen_prime feistel mds
 
 default: all
@@ -41,6 +41,10 @@ prime:	prime.c
 gcd:	gcd.c
 	$(E) "  CC      " $@
 	$(Q) ${CC} $(CFLAGS) gcd.c -o gcd
+
+gcd_stein:	gcd_stein.c
+	$(E) "  CC      " $@
+	$(Q) ${CC} $(CFLAGS) gcd_stein.c -o gcd_stein
 
 primitive_root:	primitive_root.c
 	$(E) "  CC      " $@

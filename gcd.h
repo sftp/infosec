@@ -10,6 +10,33 @@ int gcd (int a, int b)
 	return a + b;
 }
 
+int gcd_stein (int a, int b)
+{
+	if (a == 0)
+		return b;
+	if (b == 0)
+		return a;
+	if (a == b)
+		return a;
+	if (a == 1 || b == 1)
+		return 1;
+
+	/* if bith a and b is even */
+	if (!(a & (int)1) && !(b & (int)1))
+		return 2 * gcd_stein(a/2, b/2);
+	/* if a is even */
+	if (!(a & (int)1))
+		return gcd_stein(a/2, b);
+	/* if b is even */
+	if (!(b & (int)1))
+		return gcd_stein(a, b/2);
+
+	if (a > b)
+		return gcd_stein((a-b)/2, b);
+
+	return gcd_stein(a, (b-a)/2);
+}
+
 int gcd_ext (int a, int b, int *x, int *y)
 {
 	if (b == 0) {
