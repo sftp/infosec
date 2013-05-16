@@ -3,3 +3,16 @@
 \#*#
 
 *.o
+
+# binaries
+factor
+coprime
+mod
+mod_reverse
+prime
+gcd
+gcd_stein
+primitive_root
+gen_prime
+feistel
+mds
